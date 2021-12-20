@@ -1,0 +1,23 @@
+schema: "https://rickandmortyapi.com/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/types/gql.types.ts:
+    plugins:
+      - typescript
+    config:
+      skipTypename: true
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: "/types/gql.types.ts"
+      folder: "../hooks"
+    plugins:
+      - typescript-operations
+      - typescript-react-query
+    config:
+      optimizeDocumentNode: true
+      exposeQueryKeys: true
+      skipTypename: true
+      fetcher:
+        func: "api/queryFunction#defaultQueryFunction"

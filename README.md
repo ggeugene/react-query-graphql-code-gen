@@ -1,10 +1,21 @@
-# Getting Started with Create React App
+# Rick and Morty app using react-query with GraphQL Code Generator
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm generate:graphql`
+
+Generates graphql types and operations using [GraphQL Code Generator](https://github.com/dotansimha/graphql-code-generator).\
+Uses `src/api/queryFunction#defaultQueryFunction` as a fetcher.\
+Generates types to `src/types/gql.types.ts.`\
+Generates operations near `*.graphql` files one level above into `hooks` folder e.g.:
+
+    query in src/gql/Query.query.graphql
+    will generate hook to
+    src/hooks/Query.query.generated.ts
 
 ### `npm start`
 
